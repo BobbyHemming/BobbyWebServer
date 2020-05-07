@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Blog Home{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1>Blog Home</h1>
+      {% if user.is_authenticated %}
+        <a href="{% url 'Blogging:logout' %}">Logout</a>
+      {% else %}
+          <a href="{% url 'Blogging:login' %}">Login</a> / <a href="{% url 'Blogging:create_user' %}">Sign Up</a>
+      {% endif %}
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
+

@@ -1,0 +1,39 @@
+
+
+<h1>{{ user.username }} Profile:</h1>
+
+
+
+<li>
+    Username: {{ user.username }}
+</li>
+
+<li>
+    First Name: {{ user.first_name }}
+</li>
+
+<li>
+    Last Name: {{ user.last_name }}
+</li>
+<li>
+    Bio: {{ user.userprofile.bio}}
+</li>
+<li>
+    Birth date: {{ user.userprofile.birth_date}}
+</li>
+
+<ul>
+  {% for blog in user.blog_set.all %}
+    <li>
+        Title: "{{ blog.blog_name }}", Published: {{ blog.pub_date }}
+    </li>
+  {% endfor %}
+</ul>
+
+<form action="{% url 'Blogging:BlogHome' %}">
+    <button type="submit">Home Page</button>
+</form>
+
+<form action="{% url 'Blogging:profile_edit' user.id %}">
+    <button type="submit">Edit Profile</button>
+</form>

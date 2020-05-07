@@ -1,0 +1,17 @@
+
+{% extends 'Blogging/base.html' %}
+
+{% block content %}
+
+  <h2>Welcome {{ user.username }}!</h2>
+    <form action="{% url 'Blogging:user_index' %}" method="get">
+    {% csrf_token %}
+    <label for="User">Username:</label>
+    <input name="q" type="text" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+{% endblock %}
+
+
+
+
