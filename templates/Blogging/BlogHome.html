@@ -1,14 +1,13 @@
-
-
 {% extends 'Blogging/base.html' %}
 {% block content %}
 
 
 
-<div class="container" style="background-color: white">
+<div class="content-container" style="background-color: white">
   <h2>Welcome {{ user.username }}!</h2>
     <form action="{% url 'Blogging:user_index' %}" method="get">
     {% csrf_token %}
+        <img src="/static/images/built-in/blog-logo.png" alt="home page image" class="home-page-image">
     <label for="User">Username:
     <input name="q" type="text" placeholder="Search...">
     </label>
