@@ -6,6 +6,11 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from django.db.models.signals import post_save
+import os
+
+
+def upload_location(instance, filename):
+    return f'{instance.pk, filename}'
 
 
 # Create your models here.
@@ -14,9 +19,10 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    profile_image = models.ImageField(upload_to=upload_location, blank=True, default="user-xxl.jpg",)
 
     def __str__(self):
-        return self.user.username+"'s profile"
+        return self.user.first_name+"'s profile"
 
 
 def create_user_profile(sender, instance, created, **kwargs):
@@ -26,16 +32,10 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 post_save.connect(create_user_profile, sender=User)
 
-# @receiver(post_save, sender=User)
-# def update_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#     instance.profile.save()
-
 
 class Blog(models.Model):
     blog_name = models.CharField(max_length=200)
-    blog_text = models.CharField(max_length=1000)
+    blog_text = models.TextField(max_length=10000)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField('date published')
 
@@ -45,4 +45,5 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.blog_name
+
 

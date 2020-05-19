@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<h1>{{ user.first_name }} Profile EDIT Page:</h1>
-<body>
+{% extends 'Blogging/base.html' %}
 {% block content %}
-  <form method="post">
+<h1>{{ user.first_name }} Profile EDIT Page:</h1>
+
+  <form method='POST' action="" enctype="multipart/form-data">
     {% csrf_token %}
     {% for field in form %}
       <p>
@@ -17,8 +16,8 @@
         {% endfor %}
       </p>
     {% endfor %}
-    <button type="submit">Edit</button>
+    <button class="btn waves-effect waves-light red lighten-2" type="submit">Save Changes</button>
   </form>
 {% endblock %}
-</body>
-</html>
+
+

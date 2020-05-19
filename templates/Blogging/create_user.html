@@ -1,6 +1,7 @@
 {% extends 'Blogging/base.html' %}
 
 {% block content %}
+<div class="container">
   <h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
@@ -16,6 +17,7 @@
         {% endfor %}
       </p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    <button class="btn waves-effect waves-light red lighten-2" type="submit">Sign up</button>
   </form>
+</div>
 {% endblock %}

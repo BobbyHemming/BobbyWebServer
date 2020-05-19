@@ -1,8 +1,54 @@
+{% extends 'Blogging/base.html' %}
+{% block content %}
 
 
-<h1>{{ user.username }} Profile:</h1>
+<div class="">
+    <div class="left">
+        <img src="{{ user.userprofile.profile_image.url }}", alt="Avatar" class="circle" style="width:150px;height:150px;">
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+        <p class="light center">.</p>
+    </div>
+</div>
 
 
+<div class="container" style="background-color: white; width:800px;">
+    <h1 style="text-align: center">{{ user.userprofile }}</h1>
+    <div class="row">
+        <div class="col s4">
+            <!-- Promo Content 1 goes here -->
+            <div class="center">
+                <img src="{{ user.userprofile.profile_image.url }}", alt="Avatar" class="circle" style="width:150px;height:150px;" >
+                <i class="large material-icons" style="color: #EE6E73">flash_on</i>
+                <p>Fast craigslist web scraper</p>
+                <p class="light center">Scrape away right here with a beautiful GUI.</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Promo Content 2 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: orange">camera</i>
+                <p>Filter your searches</p>
+                <p class="light center">We built in functionality to filter based on pricing.</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Promo Content 3 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
+                <p>A much sexier front-end to Craigslist</p>
+                <p class="light center">We built this with ❤️</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<li>
+{#    <img src="/static/images/user-xxl.jpg" alt="HTML5 Icon" style="width:50px;height:50px;" >#}
+    <img src="{{ user.userprofile.profile_image.url }}" alt="HTML5-icon" style="width:150px;height:150px;" >
+</li>
 
 <li>
     Username: {{ user.username }}
@@ -30,10 +76,13 @@
   {% endfor %}
 </ul>
 
-<form action="{% url 'Blogging:BlogHome' %}">
-    <button type="submit">Home Page</button>
-</form>
+<a class="btn waves-effect waves-light red lighten-2" href="{% url 'Blogging:BlogHome' %}">Home Page</a>
+<a class="btn waves-effect waves-light red lighten-2" href="{% url 'Blogging:profile_edit' user.id %}">Edit Profile</a>
+
 
 <form action="{% url 'Blogging:profile_edit' user.id %}">
-    <button type="submit">Edit Profile</button>
+
 </form>
+
+{% endblock %}
+

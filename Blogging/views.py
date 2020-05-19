@@ -53,7 +53,14 @@ def signup(request):
 @login_required(login_url='Blogging:login')
 def EditProfileView(request, pk):
     user = get_object_or_404(User, id=pk)
-    user = authenticate(username=user.username, password=user.password)
+    user = request.user
+    # user = authenticate(username=user.username, password=user.password)
+
+    # if request.method == 'POST':
+    #     form = ProfileEditForm(request.POST or None, request.FILES, instance=user.userprofile)
+    #     if form.is_valid():
+    #         form.save()
+
     if user is not None:
         form = ProfileEditForm(request.POST or None, instance=user.userprofile)
         if form.is_valid():
@@ -62,5 +69,7 @@ def EditProfileView(request, pk):
         return render(request, 'Blogging/profile_edit.html', {'form': form})
     else:
         HttpResponseRedirect(reverse('Blogging:BlogHome'))
+
+
 
 

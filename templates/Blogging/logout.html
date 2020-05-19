@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'Blogging/base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,5 +10,6 @@
 </html>
 
 <form action="{% url 'Blogging:BlogHome' %}">
-    <button type="submit">Home Page</button>
+    <button class="btn waves-effect waves-light red lighten-2" type="submit">Home Page</button>
 </form>
+{% endblock %}

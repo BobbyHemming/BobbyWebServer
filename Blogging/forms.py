@@ -5,9 +5,9 @@ from .models import UserProfile
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    # first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    # last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    # email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
     class Meta:
         model = User
@@ -17,6 +17,6 @@ class SignUpForm(UserCreationForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio', 'location', 'birth_date', ]
+        fields = ['bio', 'location', 'birth_date', 'profile_image',]
         exclude = ['user', ]
 
