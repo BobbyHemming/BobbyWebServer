@@ -17,6 +17,6 @@ class SignUpForm(UserCreationForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio', 'location', 'birth_date', 'profile_image',]
+        fields = ['bio', 'location', 'birth_date', 'profile_image', ]
         exclude = ['user', ]
 

@@ -10,7 +10,7 @@ import os
 
 
 def upload_location(instance, filename):
-    return f'{instance.pk, filename}'
+    return f'{instance.user}/{filename}'
 
 
 # Create your models here.
@@ -19,7 +19,7 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    profile_image = models.ImageField(upload_to=upload_location, blank=True, default="user-xxl.jpg",)
+    profile_image = models.ImageField(upload_to=upload_location, null=True, blank=True, default="default/default.jpg",)
 
     def __str__(self):
         return self.user.first_name+"'s profile"

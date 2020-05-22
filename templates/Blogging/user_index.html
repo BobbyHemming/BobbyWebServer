@@ -2,6 +2,29 @@
 {% extends 'Blogging/base.html' %}
 {% block content %}
 
+{% if object_list %}
+    <ul>
+        {% for user in object_list %}
+            <li>
+                <div class="profile-container">
+                    <a href="{% url 'Blogging:profile_detail' user.id %}">
+                        {% if user.userprofile.profile_image %}
+                            <img src="{{ user.userprofile.profile_image.url }}" alt="profile picture" class="profile-image" style="width:50px;height:50px;" >
+                        {% else %}
+                            <img src="/media/default/default.jpg" alt="default image">
+                        {% endif %}
+                    </a>
+                    <a href="{% url 'Blogging:profile_detail' user.id %}" style="text-decoration: none" class="name"> {{ user.first_name }} {{ user.last_name }}</a>
+                    <p class="user-bio">{{ user.userprofile.bio }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No users were found.</p>
+{% endif %}
+
+
 <div class="container">
     <h1>User List</h1>
         {% if object_list %}

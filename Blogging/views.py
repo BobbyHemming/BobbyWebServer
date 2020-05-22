@@ -62,7 +62,7 @@ def EditProfileView(request, pk):
     #         form.save()
 
     if user is not None:
-        form = ProfileEditForm(request.POST or None, instance=user.userprofile)
+        form = ProfileEditForm(request.POST or None,  request.FILES or None, instance=user.userprofile,)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('Blogging:profile_detail', kwargs={"pk": user.pk}))

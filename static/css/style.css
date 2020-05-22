@@ -4,7 +4,7 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #4f4f4f;
+    background-color: #eceff3;
 }
 
 header {
@@ -57,11 +57,119 @@ nav ul li a:hover {
 
 .content-container {
     text-align: center;
-    padding: .8em 3em;
+    padding: 3.8em 3em;
+    vertical-align: middle;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.profile-container {
+    background-color: whitesmoke;
+    display: inline-block;
+    padding: .8em 1em;
+    border-radius: 20px;
+    width: 70%;
+    margin: 1em 15%;
+}
+
+.profile-container a {
+    color: #4f4f4f;
+}
+
+.profile-container .name {
+    text-decoration: none;
+    color: #313435;
+    background-color: inherit;
+    font-weight: bold;
+    position: absolute;
+    margin: 1px 1.3em;
+}
+
+.profile-image {
+    border-radius: 50%;
+    margin: 0 0;
+}
+
+p.user-bio {
+    text-decoration: none;
+    font-weight: lighter;
+    position: absolute;
+    display: inline-block;
+    margin: 0 12em;
+    color: #4f4f4f;
+    width: 51%;
+}
+
+.input-container {
+    display: flex;
+    width: 40%;
+    margin: 0 auto 15px;
+    background-color: #eceff3;
+    border-radius: 14px;
+    vertical-align: center;
+}
+
+.input-container2 {
+    display: flex;
+    width: 100%;
+    margin: .1em .1em;
+    background-color: #fff;
+    border-radius: 11px;
+}
+
+.home-page-input {
+    font-size: 14px;
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.search-icon-image {
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+input:-webkit-autofill {
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+.subhead {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.footer-container {
+    background-color: #f2f2f5;
+    width: 58%;
+    padding: 10%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.search-icon-button {
+    border: none;
+    background-color: transparent;
+    outline: none;
 }
 
 .home-page-image {
-    width: 30%;
+    padding-bottom: 2.5em;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
 
 .header-logo {
