@@ -2,16 +2,21 @@
 {% block content %}
 
 
-<div class="">
-    <div class="left">
-        <img src="{{ user.userprofile.profile_image.url }}", alt="Avatar" class="circle" style="width:150px;height:150px;">
-        <p>{{ user.first_name }} {{ user.last_name }}</p>
-        <p class="light center">.</p>
-    </div>
+<div class="profile-corner-container">
+    <ul>
+        <li><img src="{{ user.userprofile.profile_image.url }}", alt="Avatar" class="detail-profile-pic"></li>
+        <li><p>{{ user.first_name }} {{ user.last_name }}</p></li>
+        {% if user.userprofile.birth_date %}
+            <li><p>{{ user.userprofile.birth_date }}</p></li>
+        {% endif %}
+        {% if user.userprofile.location %}
+            <li><p>{{ user.userprofile.location }}</p></li>
+        {% endif %}
+    </ul>
 </div>
 
 
-<div class="container" style="background-color: white; width:800px;">
+<div class="content-container" style="background-color: white; width:800px;">
     <h1 style="text-align: center">{{ user.userprofile }}</h1>
     <div class="row">
         <div class="col s4">

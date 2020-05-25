@@ -2,6 +2,10 @@
 {% extends 'Blogging/base.html' %}
 {% block content %}
 
+<div class="content-container" style="margin: 1em 16%; padding: 1em 0; background-color: whitesmoke">
+    <h1>User List:</h1>
+</div>
+
 {% if object_list %}
     <ul>
         {% for user in object_list %}

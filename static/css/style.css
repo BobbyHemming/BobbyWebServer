@@ -69,7 +69,7 @@ nav ul li a:hover {
     padding: .8em 1em;
     border-radius: 20px;
     width: 70%;
-    margin: 1em 15%;
+    margin: .5em 15%;
 }
 
 .profile-container a {
@@ -98,6 +98,32 @@ p.user-bio {
     margin: 0 12em;
     color: #4f4f4f;
     width: 51%;
+}
+
+.profile-corner-container {
+    margin: 1.5% 1.5%;
+    position: fixed;
+    background-color: white;
+    width: 15%;
+    border-radius: 10px;
+}
+
+.detail-profile-pic {
+    margin-top: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 200px;
+    border: 1px solid #ddd;
+    object-fit: scale-down;
+}
+
+.profile-corner-container ul li p {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 80%;
 }
 
 .input-container {
